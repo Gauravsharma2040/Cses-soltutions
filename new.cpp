@@ -3,6 +3,7 @@
 using namespace std;
 int main(){
     string s;
+    cout<<"hello word";
     cin>>s;
     int i;
     int j=1;
