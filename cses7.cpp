@@ -1,17 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Returns total ways to place 2 knights on n x n board
 long long factorial(long long n) {
     if (n == 1) return 0;
     long long a = n * n;
-    return a * (a - 1) / 2; // integer arithmetic
+    return a * (a - 1) / 2;
 }
 
-// Returns number of attacking placements of knights
 long long subt(long long n) {
     if (n < 3) return 0; // no attacking pairs for n = 1,2
-    return 4 * (n - 1) * (n - 2); // direct formula
+    return 4 * (n - 1) * (n - 2); 
 }
 
 int main() {
@@ -27,3 +25,4 @@ int main() {
 
     return 0;
 }
+
