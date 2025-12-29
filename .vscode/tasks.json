@@ -2,8 +2,8 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: new.cpp build active file",
-            "command": "c:\\Users\\Asus\\Documents\\new.cpp",
+            "label": "C/C++: g++.exe build active file",
+            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
@@ -12,7 +12,7 @@
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
-                "cwd": "c:\\Users\\Asus\\Documents"
+                "cwd": "${fileDirname}"
             },
             "problemMatcher": [
                 "$gcc"
