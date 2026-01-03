@@ -9,3 +9,4 @@ bin/
 
 # VS Code
 .vscode/
+.gitignore
