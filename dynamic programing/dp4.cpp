@@ -10,14 +10,12 @@ int main(){
     for(int i = 0; i < n; i++) cin >> coins[i];
     vector<long long> ways(x + 1, 0);
     ways[0] = 1;
-    for(int i = 1; i <= x; i++){
-        for(auto c : coins){
-            if(i - c >= 0){
-                ways[i] = (ways[i] + ways[i - c]) % MOD;
-            }
-        }
+    for (auto coin : coins) {
+    for (auto sum = coin; sum <= x; sum++) {
+        ways[sum] += (ways[sum - coin]) %MOD;
     }
-    cout<<ways[x]<<' ';
+}
+    cout<<ways[x]%MOD<<' ';
     return 0;
 }
 
