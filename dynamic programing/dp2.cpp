@@ -3,7 +3,6 @@ using namespace std;
 int main(){
 ios::sync_with_stdio(false);
 cin.tie(nullptr);
-return 0;
 int n,x;
 cin>>n>>x;
 vector<int> coins(n);
@@ -17,4 +16,5 @@ for(int i=1;i<=x;i++){
     }
 }
 dp[x] == INT_MAX?cout<<-1:cout<<dp[x];
+return 0;
 }
