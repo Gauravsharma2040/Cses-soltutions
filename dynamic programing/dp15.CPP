@@ -1,30 +1,25 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int main(){
-ios::sync_with_stdio(false);
-cin.tie(nullptr);
-int n;
-cin>>n;
-vector<int> nums(n);
-long long total =0;
-for(int i=0;i<n;i++){
-    cin>>nums[i];
-    total+=nums[i];
-}
-vector<vector<int>> dp(n,vector<int>(n));
-for (int i = 0; i < n; i++) {
-        dp[i][i] = nums[i];
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int n;
+    cin >> n;
+    vector<long long> x(n);
+    for (int i = 0; i < n; i++) cin >> x[i];
+    vector<long long> dp(n);
+    for (int i = 0; i < n; i++) {
+        dp[i] = x[i];
     }
-for (int len = 2; len <= n; len++) {
-        for (int l = 0; l + len - 1 < n; l++) {
-            int r = l + len - 1;
-            dp[l][r] = max(
-                nums[l] - dp[l + 1][r],
-                nums[r] - dp[l][r - 1]
+    for (int r = 1; r < n; r++) {
+        for (int l = r - 1; l >= 0; l--) {
+            dp[l] = max(
+                x[l] - dp[l + 1],
+                x[r] - dp[l]
             );
         }
     }
-    long long first = (total + dp[0][n - 1]) / 2;
-    cout << first << "\n"; 
- return 0;
+    long long total = accumulate(x.begin(), x.end(), 0LL);
+    long long first = (total + dp[0]) / 2;
+    cout << first << "\n";
 }
