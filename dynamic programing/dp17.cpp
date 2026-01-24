@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 vector<long long> nums(200005);
-vector<long long> segment(4 * 200005);
+vector<long long> segment(4 * 200005,0);
 void build(int ind, int low, int high) {
     if (low == high) {
         segment[ind] = nums[low];
@@ -21,7 +21,7 @@ long long query(int ind, int low, int high, int l, int r) {
     return max(left, right);
 }
 void update(int ind, int low, int high, int pos, long long val) {
-    if (low == high) {
+    if (low == high){
         segment[ind] = val;
         return;
     }
@@ -59,7 +59,6 @@ vector<int> order(n);
     sort(order.begin(), order.end(), [&](int a, int b) {
         return mountain[a] < mountain[b];
     });
-    for (int i = 0; i < 4 * n; i++) segment[i] = 0;
     vector<int> dp(n, 1);
     for (int idx : order) {
         int best = 0;
